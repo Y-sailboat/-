@@ -5,7 +5,9 @@
         <asp:GridView ID="gvFreight" runat="server" AutoGenerateColumns="False" Width="80%" AllowPaging="True" OnPageIndexChanging="gvFreight_PageIndexChanging" CssClass="grid" CellPadding="4" ForeColor="#333333" GridLines="None" HorizontalAlign="Center">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
-        
+            
+                 <asp:BoundField DataField="Start" HeaderText="出发地" />
+                <asp:BoundField DataField="Terminal" HeaderText="到达地" />
                 <asp:BoundField DataField="FreightType" HeaderText="货物种类" />
                 <asp:TemplateField HeaderText="重量">
                     <ItemTemplate>
