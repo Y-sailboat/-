@@ -1,3 +1,4 @@
+specialList.aspx
 <%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="specialList.aspx.cs" Inherits="specialList" Title="Untitled Page" %>
  <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="top-grid">
@@ -5,7 +6,7 @@
         <asp:GridView ID="gvSpecial" runat="server" AutoGenerateColumns="False" Width="80%" AllowPaging="True" OnPageIndexChanging="gvSpecial_PageIndexChanging" CssClass="grid" CellPadding="4" ForeColor="#333333" GridLines="None" HorizontalAlign="Center">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
-               
+               <asp:BoundField DataField="start" HeaderText="出发地" />
                 <asp:BoundField DataField="Terminal" HeaderText="到达地" />
                 <asp:BoundField DataField="TruckType" HeaderText="车型" />
                 <asp:BoundField DataField="specialPrice" HeaderText="专线报价" />
@@ -30,3 +31,35 @@
         </asp:GridView>
     </div>
 </asp:Content>
+
+specialList.aspx.cs
+using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+
+public partial class specialList : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        bindSpecial();
+    }
+
+    protected void bindSpecial()
+    {
+        string sql = "select * from tb_Special where Auditing = '1' order by ID DESC";
+        gvSpecial.DataSource = dataOperate.getDataset(sql, "tb_Special");
+        gvSpecial.DataBind();
+    }
+    protected void gvSpecial_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        gvSpecial.PageIndex = e.NewPageIndex;
+        gvSpecial.DataBind();
+    }
+}
