@@ -14,7 +14,7 @@
                         <%#Eval("ID")%>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:BoundField DataField="FBDate" DataFormatString="{0:yy-MM-dd}" HeaderText="发布日期"
+                <asp:BoundField DataField="FBDate" DataFormatString="{0:yy-MM-dd}" HeaderText="发布日期
                     HtmlEncode="False" />
                 <asp:TemplateField HeaderText="详细信息">
                     <ItemTemplate>
