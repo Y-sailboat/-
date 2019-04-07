@@ -8,7 +8,7 @@
                 <asp:BoundField DataField="Start" HeaderText="出发地" />
                 <asp:BoundField DataField="Terminal" HeaderText="到达地" />
                 <asp:BoundField DataField="FreightType" HeaderText="货物种类" />
-                <asp:TemplateField HeaderText="重量">
+                <asp:TemplateField HeaderText="重量"
                     <ItemTemplate>
                         <%#Eval("ID")%>
                         <%#Eval("ID")%>
